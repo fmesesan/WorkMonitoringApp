@@ -1,0 +1,22 @@
+<component name="ArtifactManager">
+  <artifact type="javafx" name="WorkMonitoringApp">
+    <output-path>$PROJECT_DIR$/out/artifacts/WorkMonitoringApp</output-path>
+    <properties id="javafx-properties">
+      <options>
+        <option name="alias" value="" />
+        <option name="appClass" value="sample.Main" />
+        <option name="description" value="Application that monitors the time spent for different tasks" />
+        <option name="htmlPlaceholderId" value="" />
+        <option name="keystore" value="" />
+        <option name="title" value="Work monitoring app" />
+        <option name="vendor" value="1" />
+        <option name="version" value="" />
+      </options>
+    </properties>
+    <root id="root">
+      <element id="archive" name="WorkMonitoringApp.jar">
+        <element id="module-output" name="WorkMonitoringApp" />
+      </element>
+    </root>
+  </artifact>
+</component>

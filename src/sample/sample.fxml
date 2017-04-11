@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.shape.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.collections.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <children>
+      <SplitPane dividerPositions="0.6834170854271356" onMouseEntered="#populateTaskName0" orientation="VERTICAL" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <items>
+          <AnchorPane minHeight="100.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+               <children>
+                  <ScrollPane fx:id="scrollPaneUp" layoutY="27.0" prefHeight="248.0" prefWidth="598.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="27.0">
+                     <content>
+                        <AnchorPane fx:id="anchorPaneUp" minHeight="0.0" minWidth="0.0" prefHeight="82.0" prefWidth="585.0">
+                           <children>
+                              <TextField fx:id="startTime0" alignment="CENTER_RIGHT" layoutX="14.0" layoutY="41.0" onAction="#readTypedStartTime" onKeyPressed="#allignCenterLeft" onMouseClicked="#getSistemStartTime" onMouseEntered="#clearLog" prefHeight="25.0" prefWidth="99.0" />
+                              <TextField fx:id="endTime0" alignment="CENTER_RIGHT" layoutX="120.0" layoutY="41.0" onAction="#readTypedEndTime" onKeyPressed="#allignCenterLeft" onMouseClicked="#getSistemEndTime" onMouseEntered="#clearLog" prefHeight="25.0" prefWidth="99.0" />
+                              <TextField fx:id="taskKey0" alignment="CENTER" editable="false" layoutX="231.0" layoutY="41.0" onMouseEntered="#clearLog" prefHeight="25.0" prefWidth="99.0" />
+                              <ComboBox fx:id="taskName0" centerShape="false" editable="true" layoutX="341.0" layoutY="41.0" onAction="#getTaskName" onMouseEntered="#clearLog" prefHeight="25.0" prefWidth="231.0" />
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </ScrollPane>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f2f0f0" height="69.0" layoutX="2.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="579.0" AnchorPane.leftAnchor="2.0" />
+                  <Label layoutX="146.0" layoutY="47.0" text="End time" />
+                  <Label alignment="CENTER" layoutX="396.0" layoutY="47.0" prefHeight="17.0" prefWidth="99.0" text="Task name" textAlignment="CENTER" wrapText="true" />
+                  <Label layoutX="36.0" layoutY="47.0" text="Start time" />
+                  <Label alignment="CENTER" layoutX="231.0" layoutY="47.0" prefHeight="17.0" prefWidth="99.0" text="Task key" textAlignment="CENTER" wrapText="true" />
+               </children>
+            </AnchorPane>
+          <AnchorPane maxHeight="123.0" minHeight="123.0" minWidth="0.0" prefHeight="123.0" prefWidth="598.0" scaleShape="false">
+               <children>
+                  <ScrollPane layoutY="-16.0" maxHeight="120.0" maxWidth="598.0" minHeight="105.0" pannable="true" prefHeight="120.0" prefWidth="598.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-16.0">
+                     <content>
+                      <AnchorPane fx:id="anchorPaneDown" maxHeight="99.0" minHeight="0.0" minWidth="0.0" prefHeight="99.0" prefWidth="185.0" />
+                     </content>
+                  </ScrollPane>
+                  <TextField fx:id="log" layoutX="4.0" layoutY="98.0" maxHeight="25.0" maxWidth="592.0" minHeight="25.0" prefHeight="25.0" prefWidth="592.0" style="-fx-border-radius: 10 10 10 10 10;" AnchorPane.leftAnchor="4.0" AnchorPane.rightAnchor="2.0" />
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+      <Button fx:id="logToJira" layoutX="491.0" layoutY="2.0" mnemonicParsing="false" onAction="#logWorkToJira" prefHeight="25.0" prefWidth="100.0" text="Log work in Jira" />
+      <Button fx:id="clearAll" layoutX="381.0" layoutY="2.0" mnemonicParsing="false" onAction="#showClearAllPopup" prefWidth="100.0" text="Clear all" />
+      <TitledPane fx:id="jiraOptions" alignment="CENTER" cacheShape="false" centerShape="false" contentDisplay="CENTER" expanded="false" focusTraversable="false" layoutX="6.0" layoutY="2.0" onMouseClicked="#showHideOptions" onMouseMoved="#hideOptions" prefHeight="230.0" prefWidth="363.0" scaleShape="false" text="Jira integration options" textAlignment="CENTER">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" onMouseMoved="#hideOptions" prefHeight="0.0" prefWidth="361.0" visible="false">
+               <children>
+                  <Button layoutX="230.0" layoutY="170.0" mnemonicParsing="false" onAction="#saveOptions" text="OK" />
+                  <Button layoutX="275.0" layoutY="170.0" mnemonicParsing="false" onAction="#closeOptions" text="Cancel" />
+                  <Label layoutX="27.0" layoutY="23.0" text="Jira username:">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="27.0" layoutY="53.0" text="Jira password:">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="27.0" layoutY="83.0" text="Jira query:">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="27.0" layoutY="113.0" text="Jira protocol:">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <PasswordField fx:id="uiPassword" layoutX="135.0" layoutY="50.0" prefHeight="25.0" prefWidth="193.0" promptText="password" text="parola" />
+                  <TextField fx:id="uiUserName" layoutX="135.0" layoutY="20.0" prefHeight="25.0" prefWidth="193.0" promptText="user name" text="user" />
+                  <TextField fx:id="uiQuerry" layoutX="135.0" layoutY="80.0" prefHeight="25.0" prefWidth="193.0" promptText="querry" text="type = &quot;technical task&quot; and status != closed and assignee = currentuser()" />
+                  <TextField fx:id="uiServerName" layoutX="135.0" layoutY="140.0" prefHeight="25.0" prefWidth="193.0" promptText="server url" text="www.server:port" />
+                  <Label layoutX="27.0" layoutY="143.0" text="Jira server name:">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                   <ComboBox fx:id="uiProtocol" editable="true" layoutX="135.0" layoutY="110.0" prefHeight="25.0" prefWidth="191.0" promptText="http: or https:" value="$defaultSelection">
+                       <items>
+                           <FXCollections fx:factory="observableArrayList">
+                               <String fx:id="defaultSelection" fx:value="http" />
+                               <String fx:value="https" />
+                           </FXCollections>
+                       </items>
+                   </ComboBox>
+               </children>
+            </AnchorPane>
+        </content>
+      </TitledPane>
+      <Pane fx:id="clearAllPopup" layoutX="213.0" layoutY="130.0" prefHeight="97.0" prefWidth="179.0" style="-fx-background-color: #f5f5f0; -fx-border-color: grey; -fx-border-radius: 5 5 5 5;" visible="false">
+         <children>
+            <Label layoutX="4.0" prefHeight="57.0" prefWidth="171.0" text="Do you really want to clear all the records?" textAlignment="CENTER" wrapText="true">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Button fx:id="clearAllYes" layoutX="14.0" layoutY="63.0" mnemonicParsing="false" onAction="#clearAllRecords" prefHeight="25.0" prefWidth="60.0" text="Yes" />
+            <Button fx:id="clearAllNo" layoutX="94.0" layoutY="63.0" mnemonicParsing="false" onAction="#closeClearALlPopup" prefHeight="25.0" prefWidth="60.0" text="No" />
+         </children>
+         <effect>
+            <ColorAdjust />
+         </effect>
+         <opaqueInsets>
+            <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+         </opaqueInsets>
+      </Pane>
+   </children>
+</AnchorPane>
